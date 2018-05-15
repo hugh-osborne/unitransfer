@@ -1,0 +1,5 @@
+generate-matrix rinzel 0.1 1000 0.0 -0.04 (maybe 100 instead of 1000?)
+generate-matrix rinzel -0.1 1000 0.0 -0.04
+generate-model rinzel -52 -35
+
+null strips: 1, 1451, 1564 
