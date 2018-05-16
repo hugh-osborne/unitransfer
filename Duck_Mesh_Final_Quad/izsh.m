@@ -1409,7 +1409,7 @@ strip_cell_strip_width = 2;
 for i = 100:strip_cell_strip_width:nullcline_strip_length-strip_cell_strip_width
     v1 = right_curve(i+strip_cell_strip_width,1);
     h1 = right_curve(i+strip_cell_strip_width,2);
-    tspan = 0:timestep:60 %+ (100 * (max(0,(((-20-v1) / (25))))^2)); % 70
+    tspan = 0:timestep:80 %+ (100 * (max(0,(((-20-v1) / (25))))^2)); % 70
 
     s1 = prev_s2;
     [t2,s2] = ode23s(@izshikevich_backward, tspan, [v1 h1]);
