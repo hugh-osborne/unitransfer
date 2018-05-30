@@ -48,10 +48,10 @@
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
 <Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
 <Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
-<!--<Connection In="RG_E" Out="RG_E">6 0.1 0</Connection>
-<Connection In="RG_F" Out="RG_F">6 0.1 0</Connection>
-<Connection In="RG_E" Out="RG_F">6 0.1 0</Connection>
-<Connection In="RG_F" Out="RG_E">6 0.1 0</Connection>-->
+<Connection In="RG_E" Out="RG_E">20 0.1 0</Connection>
+<Connection In="RG_F" Out="RG_F">20 0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">20 0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">20 0.1 0</Connection>
 <!--
 <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
