@@ -22,7 +22,7 @@
 <Connections>
 <Connection In="E_Input" Out="RG_E">50 0.1 0</Connection>
 <Connection In="F_Input" Out="RG_F">50 0.1 0</Connection>
-<Connection In="RG_F" Out="RG_E">50 -0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
 <!--<Connection In="RG_E" Out="RG_F">50 -0.1 0</Connection>-->
 <!--<IncomingConnection Node="RG_E">50 0.1 0</IncomingConnection>
 <OutgoingConnection Node="RG_E"/>-->

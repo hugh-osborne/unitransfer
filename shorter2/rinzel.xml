@@ -1,11 +1,16 @@
 <Simulation>
- <Variable Name='TIME_END'>6.0</Variable>
+ <Variable Name='TIME_END'>30.0</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
 <Algorithm type="MeshAlgorithm" name="OSC" modelfile="rinzel.model" >
 <TimeStep>0.002</TimeStep>
 <MatrixFile>rinzel_1_0_0_0_.mat</MatrixFile>
+<MatrixFile>rinzel_0.1_0_0_0_.mat</MatrixFile>
+<MatrixFile>rinzel_-0.1_0_0_0_.mat</MatrixFile>
 <MatrixFile>rinzel_-1_0_0_0_.mat</MatrixFile>
+<MatrixFile>rinzel_-10_0_0_0_.mat</MatrixFile>
+<MatrixFile>rinzel_-5_0_0_0_.mat</MatrixFile>
+<MatrixFile>rinzel_-20_0_0_0_.mat</MatrixFile>
 </Algorithm>
 <!--<Algorithm type="MeshAlgorithm" name="LIF" modelfile="lif.model" >
 <TimeStep>0.001</TimeStep>
@@ -13,10 +18,10 @@
 <MatrixFile>lif_-0.05_0_0_0_.mat</MatrixFile>
 </Algorithm>-->
 <Algorithm type="RateFunctor" name="MLR_1">
-<expression>500</expression>
+<expression>3600</expression>
 </Algorithm>
 <Algorithm type="RateFunctor" name="MLR_2">
-<expression>t > 0.1 ? 500 : 0</expression>
+<expression>t > 0.3 ? 3600 : 0</expression>
 </Algorithm>
 </Algorithms>
 <Nodes>
@@ -44,10 +49,10 @@
   -->
 </Nodes>
 <Connections>
-<Connection In="MLR_E" Out="RG_E">1 1 0</Connection>
-<Connection In="MLR_F" Out="RG_F">1 1 0</Connection>
-<Connection In="RG_E" Out="RG_F">4 -1 0</Connection>
-<Connection In="RG_F" Out="RG_E">4 -1 0</Connection>
+<Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
+<Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">18 -0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">18 -0.1 0</Connection>
 <!--
 <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
