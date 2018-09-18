@@ -1,0 +1,62 @@
+<Simulation>
+<Variable Name="RG_E_CONN" type="double">100</Variable>
+<Variable Name="RG_F_CONN" type="double">100</Variable>
+<Variable Name="IN_RG_E_CONN" type="double">50</Variable>
+<Variable Name="IN_RG_F_CONN" type="double">50</Variable>
+<WeightType>DelayedConnection</WeightType>
+<Algorithms>
+<Algorithm type="MeshAlgorithm" name="E" modelfile="HH_1D.model" >
+<TimeStep>0.0001</TimeStep>
+<MatrixFile>HH_1D_0.1_0_0_0_.mat</MatrixFile>
+<MatrixFile>HH_1D_-0.1_0_0_0_.mat</MatrixFile>
+</Algorithm>
+<Algorithm type="RateFunctor" name="RG_E_Input">
+<expression>t > 0.25 ? ( t > 0.65 ? 0 : 1000 ) : 0</expression>
+</Algorithm>
+<Algorithm type="RateFunctor" name="RG_F_Input">
+<expression>t > 0.2 ? ( t > 0.6 ? 0 : 1000 ) : 0</expression>
+</Algorithm>
+</Algorithms>
+<Nodes>
+<Node algorithm="E" name="RG_E" type="NEUTRAL" />
+<Node algorithm="E" name="RG_F" type="NEUTRAL" />
+<Node algorithm="RG_E_Input" name="E_Input" type="NEUTRAL" />
+<Node algorithm="RG_F_Input" name="F_Input" type="NEUTRAL" />
+</Nodes>
+<Connections>
+<Connection In="RG_F" Out="RG_E">RG_E_CONN -0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">RG_F_CONN -0.1 0</Connection>
+<!--<Connection In="E_Input" Out="RG_E">50 -0.1 0</Connection>
+<Connection In="F_Input" Out="RG_F">50 -0.1 0</Connection>-->
+<IncomingConnection Node="RG_E">IN_RG_E_CONN 0.1 0</IncomingConnection>
+<IncomingConnection Node="RG_F">IN_RG_F_CONN 0.1 0</IncomingConnection>
+<OutgoingConnection Node="RG_E"/>
+<OutgoingConnection Node="RG_F"/>
+</Connections>
+<SimulationIO>
+<SimulationName>iso</SimulationName>
+<OnScreen>FALSE</OnScreen>
+<WithState>TRUE</WithState>
+<WriteNet>FALSE</WriteNet>
+<CanvasParameter>
+<T_min>0</T_min>
+<T_max>0.3</T_max>
+<F_min>0</F_min>
+<F_max>20</F_max>
+<State_min>0</State_min>
+<State_max>1.0</State_max>
+<Dense_min>0</Dense_min>
+<Dense_max>2.5</Dense_max>
+</CanvasParameter>
+<CanvasNode Name="RG_E" />
+</SimulationIO>
+<SimulationRunParameter>
+<max_iter>1000000</max_iter>
+<t_begin>0</t_begin>
+<t_end>1.0</t_end>
+<t_report>0.1</t_report>
+<t_state_report>0.1</t_state_report>
+<t_step>0.0001</t_step>
+<name_log>lif.log</name_log>
+</SimulationRunParameter>
+</Simulation>
