@@ -6,22 +6,53 @@ global v_k;
 global g_l;
 global v_l;
 global I;
+
+%%%% Hodgkin Huxley parameters taken from Wang-Buzsaki Neocortical Interneurons 
+
+% @article{wang1996gamma,
+%   title={Gamma oscillation by synaptic inhibition in a hippocampal interneuronal network model},
+%   author={Wang, Xiao-Jing and Buzs{\'a}ki, Gy{\"o}rgy},
+%   journal={Journal of neuroscience},
+%   volume={16},
+%   number={20},
+%   pages={6402--6413},
+%   year={1996},
+%   publisher={Soc Neuroscience}
+% }
+
+%%%%
+
+%%%% Exponenetial Integrate and Fire Model from Fourcaud et al. -
+%%%% Approximates Wang-Buzsaki
+
+% @article{fourcaud2003spike,
+%   title={How spike generation mechanisms determine the neuronal response to fluctuating inputs},
+%   author={Fourcaud-Trocm{\'e}, Nicolas and Hansel, David and Van Vreeswijk, Carl and Brunel, Nicolas},
+%   journal={Journal of Neuroscience},
+%   volume={23},
+%   number={37},
+%   pages={11628--11640},
+%   year={2003},
+%   publisher={Soc Neuroscience}
+% }
+
+%%%%
     
 C = 1;
-g_na = 120;
-v_na = 115;
-g_k = 36;
-v_k = -12;
-g_l = 0.3;
-v_l = -54;
+g_na = 35;
+v_na = 55;
+g_k = 9;
+v_k = -90;
+g_l = 0.1;
+v_l = -65;
 
-v_0 = -8;
+v_0 = -65;
 h_0 = 0.18;
 m_0 = 0;
 n_0 = 0.5;
 
 % Input current
-I = 50;
+I = 2;
 
 % v_rest is the resting potential of this neuron
 % User must find the resting potential :
@@ -77,16 +108,16 @@ z_0 = (h_0 - h_inf(v_rest)) / sin(alpha);
 % plot(vspan, ns, 'b');
 
 % plot the full HH model
-% tspan = 0:0.01:100.0;
-% [t,s] = ode23s(@HHv_full, tspan, [v_0 m_0 h_0 n_0]);
-% vs = s(:,1);
-% plot(t,vs,'k');
-% hold on;
+tspan = 0:0.01:100.0;
+[t,s] = ode23s(@HHv_full, tspan, [v_0 m_0 h_0 n_0]);
+vs = s(:,1);
+plot(t,vs,'k');
+hold on;
 % % 3D using m_inf
-% tspan = 0:0.01:100.0;
-% [t,s] = ode23s(@HHv_m_inf, tspan, [v_0 h_0 n_0]);
-% vs = s(:,1);
-% plot(t,vs,'b');
+tspan = 0:0.01:100.0;
+[t,s] = ode23s(@HHv_m_inf, tspan, [v_0 h_0 n_0]);
+vs = s(:,1);
+plot(t,vs,'b');
 % % 3D using n h approximation
 % [t,s] = ode23s(@HHv_nh, tspan, [v_0 m_0 h_0]);
 % vs = s(:,1);
@@ -195,93 +226,82 @@ z_0 = (h_0 - h_inf(v_rest)) / sin(alpha);
 % plot(ns(2000:end),hs(2000:end),'r');
 
 % plot the 1D model
-% tspan = 0:0.01:100.0;
-% for i = 0:10
-%     reset = odeset('Events', @HHv_reset);
-%     [t,s,te,ye,ie] = ode23s(@HHv_exp, tspan, [-65], reset);
-%     vs = s(:,1);
-%     plot(t,vs,'r');
-%     hold on;
-%     tspan = te+1.7:0.01:100.0;
-% end
+tspan = 0:0.01:100.0;
+for i = 0:10
+    reset = odeset('Events', @HHv_reset);
+    [t,s,te,ye,ie] = ode23s(@HHv_exp, tspan, [-65], reset);
+    vs = s(:,1);
+    plot(t,vs,'r');
+    hold on;
+    tspan = te+1.7:0.01:100.0;
+end
 
 % Generate 1D mesh
 
-global timestep;
-global revId;
-global outId;
-global strip;
-global formatSpec;
-
-timestep = 1; %ms
-revId = fopen('exp.rev', 'w');
-fprintf(revId, '<Mapping Type="Reversal">\n');
-
-outId = fopen('exp.mesh', 'w');
-fprintf(outId, 'ignore\n');
-fprintf(outId, '%f\n', timestep/1000);
-
-formatSpec = '%.12f ';
-strip = 0;
-
-I = 0;
-tspan = 0:timestep:180.0;
-v_0 = -55.56;
-[t,s] = ode23s(@HHv_exp, tspan, [v_0]);
-
-gen_strip(s);
-hold on;
-
-fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
-
-tspan = 0:timestep:150.0;
-v_0 = -55.58;
-[t,s] = ode23s(@HHv_exp, tspan, [v_0]);
-
-gen_strip(s);
-
-fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
-
-tspan = 0:timestep:150.0;
-v_0 = -100;
-[t,s] = ode23s(@HHv_exp, tspan, [v_0]);
-
-vs = s(:,1);
-
-gen_strip(s);
-
-fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
-
-fprintf(outId, 'end\n');
-
-fprintf(revId, '</Mapping>\n');
-fclose(revId);
-
-outId = fopen('exp.stat', 'w');
-fprintf(outId, '<Stationary>\n');
-fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-67.615, -67.615, -67.605, -67.605, 0.0, 0.05, 0.05, 0.0);
-fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-55.58, -55.58, -55.56, -55.56, 0.0, 0.05, 0.05, 0.0);
-fprintf(outId, '</Stationary>\n');
-fclose(outId);
+% global timestep;
+% global revId;
+% global outId;
+% global strip;
+% global formatSpec;
+% 
+% timestep = 1; %ms
+% revId = fopen('exp.rev', 'w');
+% fprintf(revId, '<Mapping Type="Reversal">\n');
+% 
+% outId = fopen('exp.mesh', 'w');
+% fprintf(outId, 'ignore\n');
+% fprintf(outId, '%f\n', timestep/1000);
+% 
+% formatSpec = '%.12f ';
+% strip = 0;
+% 
+% I = 0;
+% tspan = 0:timestep:180.0;
+% v_0 = -55.56;
+% [t,s] = ode23s(@HHv_exp, tspan, [v_0]);
+% 
+% gen_strip(s);
+% hold on;
+% 
+% fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
+% 
+% tspan = 0:timestep:150.0;
+% v_0 = -55.58;
+% [t,s] = ode23s(@HHv_exp, tspan, [v_0]);
+% 
+% gen_strip(s);
+% 
+% fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
+% 
+% tspan = 0:timestep:150.0;
+% v_0 = -100;
+% [t,s] = ode23s(@HHv_exp, tspan, [v_0]);
+% 
+% vs = s(:,1);
+% 
+% gen_strip(s);
+% 
+% fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
+% 
+% fprintf(outId, 'end\n');
+% 
+% fprintf(revId, '</Mapping>\n');
+% fclose(revId);
+% 
+% outId = fopen('exp.stat', 'w');
+% fprintf(outId, '<Stationary>\n');
+% fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-67.615, -67.615, -67.605, -67.605, 0.0, 0.05, 0.05, 0.0);
+% fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-55.58, -55.58, -55.56, -55.56, 0.0, 0.05, 0.05, 0.0);
+% fprintf(outId, '</Stationary>\n');
+% fclose(outId);
 
 function a = alpha_m(v)
-    a = (2.5 - 0.1*v) ./ (exp(2.5 - 0.1*v) - 1);
+    a = (-3.5 - 0.1*v) ./ (exp(-3.5 - 0.1*v) - 1);
 end
 
 function b = beta_m(v)
-    b = 4*exp(-v./18);
+    b = 4*exp(-(v + 60)./18);
 end
-
-% function m = m_inf_approx(v)
-%     % m = sin((v+8)/(70/(pi/2)))
-%     % or
-%     % m = 1-exp((-8-v)/20)
-%     m = 1 - exp( (-8 - v) ./ 20 );
-% end
-% 
-% function m = m_inf_approx_upstroke(v)
-%     m = ((1/100)*v) + 0.05;
-% end
 
 function m = m_inf(v)
     a = alpha_m(v);
@@ -298,23 +318,19 @@ end
 function m_prime = HHm(t, vs)
     m = vs(1);
     v = vs(2);
-    m_prime = - ( m - m_inf(v) ) ./ tau_m(v);
+    %m_prime = - ( m - m_inf(v) ) ./ tau_m(v);
+    a = alpha_m(v);
+    b = beta_m(v);
+    phi = 5;
+    m_prime = phi*(a*(1 - m) - (b*m));
 end
 
 function a = alpha_h(v)
-    a = 0.07*exp(-v ./ 20);
+    a = 0.07*exp(-(v + 58) ./ 20);
 end
 
 function b = beta_h(v)
-    b = 1 ./ (exp(3 - 0.1*v) + 1);
-end
-
-function h = h_inf_approx(v)
-%     if (v < 7)
-        h = 0.22 + (0.015*v);
-%     else
-%         h = 0.34 - (0.002*v);
-%     end
+    b = 1 ./ (exp(-2.8 - 0.1*v) + 1);
 end
 
 function h = h_inf(v)
@@ -332,15 +348,19 @@ end
 function h_prime = HHh(t, vs)
     h = vs(1);
     v = vs(2);
-    h_prime = - ( h - h_inf(v) ) ./ tau_h(v);
+    %h_prime = - ( h - h_inf(v) ) ./ tau_h(v);
+    a = alpha_h(v);
+    b = beta_h(v);
+    phi = 5;
+    h_prime = phi*(a*(1 - h) - (b*h));
 end
 
 function a = alpha_n(v)
-    a = (0.1 - 0.01*v) ./ (exp(1 - 0.1*v) - 1);
+    a = (-0.34 - 0.01*v) ./ (exp((-3.4 - 0.1*v)) - 1);
 end
 
 function b = beta_n(v)
-    b = 0.125*exp(-v./80);
+    b = 0.125*exp(-(v + 44)./80);
 end
 
 function n = n_inf(v)
@@ -358,23 +378,11 @@ end
 function n_prime = HHn(t, vs)
     n = vs(1);
     v = vs(2);
-    n_prime = - ( n - n_inf(v) ) ./ tau_n(v);
-end
-
-function z_prime = HHz(t, vs)
-    global alpha;
-    global v_rest;
-    
-    z = vs(1);
-    v = vs(2);
-    z_prime = (-cos(alpha) * (z*cos(alpha) + n_inf(v_rest) - n_inf(v)) / tau_n(v)) - (sin(alpha) * (z*sin(alpha) + h_inf(v_rest) - h_inf(v)) / tau_h(v));
-end
-
-function w = HHw(z)
-    global alpha;
-    global v_rest;
-    
-    w = (-tan(alpha)*n_inf(v_rest)) - (z*sin(alpha));
+    %n_prime = - ( n - n_inf(v) ) ./ tau_n(v);
+    a = alpha_n(v);
+    b = beta_n(v);
+    phi = 5;
+    n_prime = phi*(a*(1 - n) - (b*n));
 end
 
 function vec = HHv_full(t, vs)
@@ -459,57 +467,20 @@ function vec = HHv_2D_nh_m_inf(t, vs)
     vec = [v_prime;h_prime];
 end
 
-function vec = HHv_1D_nh_m_inf(t, vs)
-    global C;
-    global g_na;
-    global v_na;
-    global g_k;
-    global v_k;
-    global g_l;
-    global v_l;
-    global I;
-    
-    v = vs(1);
-    
-    k = 0.79;
-    
-    v_prime = ( 1.0 / C ) * ( - (g_na * m_inf(v)^3 * hinf(v) * (v - v_na)) - ((k - (1.06*h_inf(v))^4)* (v - v_k)) - (g_l * (v - v_l)) + I);
-    vec = [v_prime];
-end
-
 function [value, isterminal, direction] = HHv_reset(t, vs)
     value      = (vs(1) > 30)-0.5;
     isterminal = 1;
     direction  = 0;
 end
 
-function vec = HHv_1D(t, vs)
-    global C;
-    global g_na;
-    global v_na;
-    global g_k;
-    global v_k;
-    global g_l;
-    global v_l;
-    global I;
-    
-    v = vs(1);
-    
-    k = 0.79;
-    
-    v_prime = ( 1.0 / C ) * ( - (g_na * m_inf(v)^3 * h_inf(v) * (v - v_na)) - (g_k * (k - (1.06*h_inf(v))^4) * (v - v_k)) - (g_l * (v - v_l)) + I);
-    
-    vec = [v_prime];
-end
-
 function vec = HHv_exp(t,vs)
+    global I;
     
     g_l = 0.1;
     v_l = -68;
     v = vs(1);
     v_th = -60;
     delta_t = 3.48;
-    I = 0;
     
     v_prime = ((g_l * delta_t * exp((v - v_th)/delta_t)) - (g_l * (v - v_l)) + I);
     
