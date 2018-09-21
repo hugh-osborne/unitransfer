@@ -77,11 +77,11 @@ z_0 = (h_0 - h_inf(v_rest)) / sin(alpha);
 % plot(vspan, ns, 'b');
 
 % plot the full HH model
-% tspan = 0:0.01:50.0;
-% [t,s] = ode23s(@HHv_full, tspan, [v_0 m_0 h_0 n_0]);
-% vs = s(:,1);
-% plot(t,vs,'k');
-% hold on;
+tspan = 0:0.01:50.0;
+[t,s] = ode23s(@HHv_full, tspan, [v_0 m_0 h_0 n_0]);
+vs = s(:,1);
+plot(t,vs,'k');
+hold on;
 % % 3D using m_inf
 % [t,s] = ode23s(@HHv_m_inf, tspan, [v_0 h_0 n_0]);
 % vs = s(:,1);
@@ -174,58 +174,58 @@ z_0 = (h_0 - h_inf(v_rest)) / sin(alpha);
 
 % Generate 1D mesh
 
-global timestep;
-global revId;
-global outId;
-global strip;
-global formatSpec;
-
-timestep = 0.1; %ms
-revId = fopen('HH_1D.rev', 'w');
-fprintf(revId, '<Mapping Type="Reversal">\n');
-
-outId = fopen('HH_1D.mesh', 'w');
-fprintf(outId, 'ignore\n');
-fprintf(outId, '%f\n', timestep/1000);
-
-formatSpec = '%.12f ';
-strip = 0;
-
-I = 0;
-tspan = 0:timestep:10.0;
-v_0 = -52.8;
-[t,s] = ode23s(@HHv_1D, tspan, [v_0]);
-
-gen_strip(s);
-hold on;
-
-fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
-
-v_0 = -52.5;
-[t,s] = ode23s(@HHv_1D, tspan, [v_0]);
-
-gen_strip(s);
-
-v_0 = -100;
-[t,s] = ode23s(@HHv_1D, tspan, [v_0]);
-
-vs = s(:,1);
-
-gen_strip(s);
-
-fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
-
-fprintf(outId, 'end\n');
-
-fprintf(revId, '</Mapping>\n');
-fclose(revId);
-
-outId = fopen('HH_1D.stat', 'w');
-fprintf(outId, '<Stationary>\n');
-fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-64.6, -64.6, -64.2, -64.2, 0.0, 0.05, 0.05, 0.0);
-fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-52.8, -52.8, -52.5, -52.5, 0.0, 0.05, 0.05, 0.0);
-fprintf(outId, '</Stationary>\n');
-fclose(outId);
+% global timestep;
+% global revId;
+% global outId;
+% global strip;
+% global formatSpec;
+% 
+% timestep = 0.1; %ms
+% revId = fopen('HH_1D.rev', 'w');
+% fprintf(revId, '<Mapping Type="Reversal">\n');
+% 
+% outId = fopen('HH_1D.mesh', 'w');
+% fprintf(outId, 'ignore\n');
+% fprintf(outId, '%f\n', timestep/1000);
+% 
+% formatSpec = '%.12f ';
+% strip = 0;
+% 
+% I = 0;
+% tspan = 0:timestep:10.0;
+% v_0 = -52.8;
+% [t,s] = ode23s(@HHv_1D, tspan, [v_0]);
+% 
+% gen_strip(s);
+% hold on;
+% 
+% fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
+% 
+% v_0 = -52.5;
+% [t,s] = ode23s(@HHv_1D, tspan, [v_0]);
+% 
+% gen_strip(s);
+% 
+% v_0 = -100;
+% [t,s] = ode23s(@HHv_1D, tspan, [v_0]);
+% 
+% vs = s(:,1);
+% 
+% gen_strip(s);
+% 
+% fprintf(revId, '%i,%i\t%i,%i\t%f\n', strip, 0, 0,0, 1.0);
+% 
+% fprintf(outId, 'end\n');
+% 
+% fprintf(revId, '</Mapping>\n');
+% fclose(revId);
+% 
+% outId = fopen('HH_1D.stat', 'w');
+% fprintf(outId, '<Stationary>\n');
+% fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-64.6, -64.6, -64.2, -64.2, 0.0, 0.05, 0.05, 0.0);
+% fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n',-52.8, -52.8, -52.5, -52.5, 0.0, 0.05, 0.05, 0.0);
+% fprintf(outId, '</Stationary>\n');
+% fclose(outId);
 
 function a = alpha_m(v)
     a = (2.5 - 0.1*v) ./ (exp(2.5 - 0.1*v) - 1);

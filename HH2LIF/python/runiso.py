@@ -110,19 +110,19 @@ model = NMF(n_components=2, init='nndsvd', random_state=0)
 W = model.fit_transform(numpy.array(res_list))
 H = model.components_
 
-plt.figure()
-plt.plot(W[:,0], W[:,1], '.')
-plt.title("time points")
-plt.show()
-
 V = numpy.matmul(W,H)
 print(W)
 plt.figure()
-plt.plot(W)
-plt.title("W")
+plt.plot(W[:,0])
+plt.title("Synergy 1")
 plt.show()
 
-print(H)
+plt.figure()
+plt.plot(W[:,1])
+plt.title("Synergy 2")
+plt.show()
+
+print(H[0:2,0:2])
 
 pca = PCA(n_components=2)
 pca.fit(res_list[2000:7000])
@@ -136,8 +136,10 @@ plt.title("time points")
 plt.show()
 
 plt.figure()
-plt.plot(np_rg_e[2000:7000])
-plt.plot(np_rg_f[2000:7000])
-plt.title("Firing Rate.")
+plt.subplot(211)
+plt.plot(np_rg_e)
+plt.title("Firing Rates")
+plt.subplot(212)
+plt.plot(np_rg_f)
 
 plt.show()

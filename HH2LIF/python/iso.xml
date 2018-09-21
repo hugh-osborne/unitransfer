@@ -5,7 +5,7 @@
 <Variable Name="IN_RG_F_CONN" type="double">50</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
-<Algorithm type="MeshAlgorithm" name="E" modelfile="HH_1D.model" >
+<Algorithm type="MeshAlgorithm" name="E" tau_refractive="0.005" modelfile="HH_1D.model" >
 <TimeStep>0.0001</TimeStep>
 <MatrixFile>HH_1D_0.1_0_0_0_.mat</MatrixFile>
 <MatrixFile>HH_1D_-0.1_0_0_0_.mat</MatrixFile>
