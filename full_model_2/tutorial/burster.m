@@ -46,7 +46,7 @@ classdef burster < handle
         function obj = burster(E_l, plt, eff, h)
             obj.g_nap = 0.25; %mS - %250.0; %nS
             obj.g_na = 30;
-            obj.g_k = 1; %1
+            obj.g_k = 6; %1
             obj.g_l = 0.1; %mS
             obj.g_syn = 0.05;
             obj.E_k = -80;
@@ -84,13 +84,13 @@ classdef burster < handle
             r = 0;
         end
         function r = update(obj,dt, t)
-            I_nap = -obj.g_nap * obj.h_nap * (obj.v - obj.E_na) * ((1 + exp((-obj.v-47.1)/3.1))^-1);
+            I_nap = -obj.g_nap * obj.h_nap * (obj.v - obj.E_na) * ((1 + exp(-(obj.v+47.1)/3.1))^-1);
             I_l = -obj.g_l*(obj.v - obj.E_l);
-            I_na = -obj.g_na * obj.h_na * (obj.v - obj.E_na) * (((1 + exp((obj.v+35)/-7.8))^-1)^3);
+            I_na = -obj.g_na * obj.h_na * (obj.v - obj.E_na) * (((1 + exp(-(obj.v+35)/7.8))^-1)^3);
             I_k = -obj.g_k * ((obj.m_k)^4) * (obj.v - obj.E_k);
             
 %             if obj.refracting == 0
-              obj.v=obj.v+dt*(I_nap + I_na + I_k + I_l + obj.mlr);
+            obj.v=obj.v+dt*(I_nap + I_na + I_k + I_l + obj.mlr);
 %             end
 
             part_1 = ((1 + (exp((obj.v + 59)/8)))^(-1)) - obj.h_nap;
@@ -98,28 +98,28 @@ classdef burster < handle
             obj.h_nap=obj.h_nap+dt*(part_1 / part_2);
             
             part_1 = ((1 + (exp((obj.v + 55)/7)))^(-1)) - obj.h_na;
-            part_2 = 30 / (exp((obj.v-50)/15) + exp(-(obj.v+50)/16));
+            part_2 = 30 / (exp((obj.v+50)/15) + exp(-(obj.v+50)/16));
             obj.h_na=obj.h_na+dt*(part_1 / part_2);
             
             part_1 = ((1 + (exp(-(obj.v + 28)/15)))^(-1)) - obj.m_k;
             part_2 = 7 / (exp((obj.v+40)/40) + exp(-(obj.v + 40)/50));
             obj.m_k=obj.m_k+dt*(part_1 / part_2);
             
-            if obj.v>-10 && obj.refracting == 0
-                obj.t_last = t;
-                obj.refracting = 1; 
-%                 obj.v=-50;
-%                 obj.h_nap=obj.h_nap-0.004;
-                for n = obj.next
-%                     n.v = n.v - obj.syn_eff;
-                    n.refracting = 0;
-                end
-            end    
-            if obj.refracting
-                if t - obj.t_last > obj.t_ref
-                    obj.refracting = 0;
-                end
-            end
+%             if obj.v>-10 && obj.refracting == 0
+%                 obj.t_last = t;
+%                 obj.refracting = 1; 
+% %                 obj.v=-50;
+% %                 obj.h_nap=obj.h_nap-0.004;
+%                 for n = obj.next
+% %                     n.v = n.v - obj.syn_eff;
+%                     n.refracting = 0;
+%                 end
+%             end    
+%             if obj.refracting
+%                 if t - obj.t_last > obj.t_ref
+%                     obj.refracting = 0;
+%                 end
+%             end
             obj.VU = [[obj.v;obj.h_nap],obj.VU(:,1:obj.L-1)];
             r = 0;
         end

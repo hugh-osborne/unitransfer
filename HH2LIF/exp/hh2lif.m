@@ -229,7 +229,7 @@ plot(t,vs,'b');
 tspan = 0:0.01:100.0;
 for i = 0:10
     reset = odeset('Events', @HHv_reset);
-    [t,s,te,ye,ie] = ode23s(@HHv_exp, tspan, [-65], reset);
+    [t,s,te,ye,ie] = ode23s(@HHv_1D, tspan, [-65], reset);
     vs = s(:,1);
     plot(t,vs,'r');
     hold on;
@@ -468,9 +468,27 @@ function vec = HHv_2D_nh_m_inf(t, vs)
 end
 
 function [value, isterminal, direction] = HHv_reset(t, vs)
-    value      = (vs(1) > 30)-0.5;
+    value      = (vs(1) > -30)-0.5;
     isterminal = 1;
     direction  = 0;
+end
+
+function vec = HHv_1D(t,vs)
+    global C;
+    global g_na;
+    global v_na;
+    global g_k;
+    global v_k;
+    global g_l;
+    global v_l;
+    global I;
+    
+    v = vs(1);
+    
+    k = 0.79;
+    
+    v_prime = ( 1.0 / C ) * ( - (g_na * m_inf(v)^3 * h_inf(v) * (v - v_na)) - (g_l * (v - v_l)) + I);
+    vec = [v_prime];
 end
 
 function vec = HHv_exp(t,vs)

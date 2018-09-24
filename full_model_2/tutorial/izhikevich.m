@@ -69,13 +69,10 @@ axis([-100 0 -0.2 1.0]);
 title('phase portrait')
 xlabel('v');ylabel('u');
 
-RG_E = burster(-64.0, h3, 17, 0.583); %burster_min = 25
+RG_E = burster_min(-64.0, h3, 17, 0.583); %burster_min = 25
 RG_E.setI(0.0);
 RG_F = burster(-64.0, h3, 17, 0.583); %burster_min = 25
 RG_F.setI(0.0);
-
-RG_E.attachNext(RG_F);
-RG_F.attachNext(RG_E);
 
 VU1 = [0;0]*ones(1,L);
 VU2 = [0;0]*ones(1,L);
@@ -103,7 +100,7 @@ while quitflag==0
    RG_F.update(tau, t);
 
    t=t+tau; 
-   if t > 1000
+   if t > 0
        RG_F.setI(5); %burster_min = 4200
    end
    
