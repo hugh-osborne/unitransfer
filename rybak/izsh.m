@@ -391,7 +391,7 @@ while (i<stripend)
     
     i = i + small_strip_width;
 
-    small_strip_width = 3 + ceil(((i / stripend) * 10))
+    small_strip_width = 3 + ceil(((i / stripend) * 7))
 
     strip = strip + 1;
     cell = 0;
