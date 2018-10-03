@@ -1,5 +1,5 @@
 <Simulation>
- <Variable Name='TIME_END'>30.0</Variable>
+ <Variable Name='TIME_END'>6.0</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
 <Algorithm type="MeshAlgorithm" name="OSC" modelfile="rinzel.model" >
@@ -53,6 +53,10 @@
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
 <Connection In="RG_E" Out="RG_F">18 -0.1 0</Connection>
 <Connection In="RG_F" Out="RG_E">18 -0.1 0</Connection>
+<Connection In="RG_E" Out="RG_E">20 0.1 0</Connection>
+<Connection In="RG_F" Out="RG_F">20 0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">10 0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">10 0.1 0</Connection>
 <!--
 <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>

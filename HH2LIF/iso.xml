@@ -20,10 +20,10 @@
 <Node algorithm="RG_F_Input" name="F_Input" type="NEUTRAL" />
 </Nodes>
 <Connections>
-<Connection In="E_Input" Out="RG_E">50 0.1 0</Connection>
-<Connection In="F_Input" Out="RG_F">50 0.1 0</Connection>
-<Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
-<!--<Connection In="RG_E" Out="RG_F">50 -0.1 0</Connection>-->
+<Connection In="E_Input" Out="RG_E">500 0.1 0</Connection>
+<Connection In="F_Input" Out="RG_F">500 0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">1000 -0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">1000 -0.1 0</Connection>
 <!--<IncomingConnection Node="RG_E">50 0.1 0</IncomingConnection>
 <OutgoingConnection Node="RG_E"/>-->
 </Connections>
@@ -50,7 +50,7 @@
 <t_end>1.0</t_end>
 <t_report>0.001</t_report>
 <t_state_report>0.001</t_state_report>
-<t_step>0.0001</t_step>
+<t_step>0.001</t_step>
 <t_update>0.001</t_update>
 <name_log>lif.log</name_log>
 </SimulationRunParameter>
