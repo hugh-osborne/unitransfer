@@ -21,7 +21,7 @@ rank = comm.Get_rank()
 miind = imp.load_dynamic('libiso', './libisopy.so')
 number_of_nodes = 2
 simulation_length = 7 #s
-miindmodel = miind.MiindModel(number_of_nodes, simulation_length, 100,50,50,50)
+miindmodel = miind.MiindModel(number_of_nodes, simulation_length, 50,100,50,50)
 
 miindmodel.init([])
 
@@ -44,7 +44,7 @@ for i in range(int(simulation_length/timestep)):
 
     start_flexion = 1
     # INTERESTING! : with a flexion ramp of < ~0.1 (100ms), the double peak in the second synergy
-    # disappears  
+    # disappears
     flexion_ramp = 0.2
     end_flexion = 5
     if(t > start_flexion):
@@ -105,10 +105,19 @@ for i in range(100):
 # print(max(rg_e.tolist()))
 # print(max(rg_f.tolist()))
 
+plt.figure()
+plt.subplot(211)
+plt.plot(np_rg_e)
+plt.title("Firing Rates")
+plt.subplot(212)
+plt.plot(np_rg_f)
 
+plt.show()
 
 # np_rg_e = np_rg_e / max(np_rg_e.tolist())
 # np_rg_f = np_rg_f / max(np_rg_f.tolist())
+
+res_list = numpy.absolute(res_list)
 
 model = NMF(n_components=2, init='nndsvd', random_state=0)
 
@@ -138,13 +147,4 @@ print(pca.components_)
 plt.figure()
 plt.plot(np_rg_e.tolist()[2000:7000],np_rg_f.tolist()[2000:7000], '.')
 plt.title("time points")
-plt.show()
-
-plt.figure()
-plt.subplot(211)
-plt.plot(np_rg_e)
-plt.title("Firing Rates")
-plt.subplot(212)
-plt.plot(np_rg_f)
-
 plt.show()
