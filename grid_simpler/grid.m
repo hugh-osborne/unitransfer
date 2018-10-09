@@ -179,9 +179,9 @@ fclose(outId);
 %stationary
 
 stat_a = [-61.685 0.5835];
-stat_c = [-61.695 0.5835];
-stat_d = [-61.685 0.583];
-stat_b = [-61.695 0.583];
+stat_b = [-61.685 0.583];
+stat_c = [-61.695 0.583];
+stat_d = [-61.695 0.5835];
 
 plot([stat_a(1) stat_b(1)],[stat_a(2) stat_b(2)],'g');
 plot([stat_b(1) stat_c(1)],[stat_b(2) stat_c(2)],'g');
