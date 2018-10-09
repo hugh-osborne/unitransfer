@@ -22,8 +22,8 @@ E_k= -80;
 g_k = 1;
 
 timestep = 1;
-transform = 0;
-filename = 'grid'; %grid_transform
+transform = 1;
+filename = 'grid_transform'; %grid_transform
 
 revId = fopen(strcat(filename,'.rev'), 'w');
 fprintf(revId, '<Mapping Type="Reversal">\n');
@@ -72,8 +72,19 @@ for i = 0:(1/columns):1
             %t_r2 = rybak([x1+((1/columns)*50),y1],timestep);
             t_x1 = t_r1(2,1);
             t_y1 = t_r1(2,2);
+            if isnan(t_x1) || isnan(t_y1)
+                t_r1 = rybak_euler([x1+((1/columns)*50),y1],timestep);
+                t_x1 = t_r1(1);
+                t_y1 = t_r1(2);
+            end
+            
             t_x2 = t_r2(2,1);
             t_y2 = t_r2(2,2);
+            if isnan(t_x2) || isnan(t_y2)
+                t_r2 = rybak_euler([x1+((1/columns)*50),y1],timestep);
+                t_x2 = t_r2(1);
+                t_y2 = t_r2(2);
+            end
 
             svs_1 = [svs_1, t_x1];
             sus_1 = [sus_1, t_y1];
@@ -127,10 +138,22 @@ for j = 0:(1/rows):1
         %t_r1 = rybak([x1,y1],timestep);
         [t1,t_r2] = ode45(@rybak, tspan, [x1+40 y1]);
         %t_r2 = rybak([x1+40,y1],timestep);
+        
         t_x1 = t_r1(2,1);
         t_y1 = t_r1(2,2);
+        if isnan(t_x1) || isnan(t_y1)
+            t_r1 = rybak_euler([x1+40,y1],timestep);
+            t_x1 = t_r1(1);
+            t_y1 = t_r1(2);
+        end
+        
         t_x2 = t_r2(2,1);
         t_y2 = t_r2(2,2);
+        if isnan(t_x2) || isnan(t_y2)
+            t_r2 = rybak_euler([x1+40,y1],timestep);
+            t_x2 = t_r2(1);
+            t_y2 = t_r2(2);
+        end
 
         svs_1 = [svs_1, t_x1];
         sus_1 = [sus_1, t_y1];
@@ -230,4 +253,37 @@ function r = rybak(t, ws)
     h_prime = (((1 + (exp((v - theta_h)/sig_h)))^(-1)) - h ) / (tau_h/cosh((v - theta_h)/(2*sig_h))) + I_h;
     
     r = [v_prime; h_prime];
+end
+
+function r = rybak_euler(ws, dt)
+    % TODO : rename this function.
+    
+    g_nap = 0.25; %mS - %250.0; %nS
+    g_na = 30;
+    g_k = 1;
+    theta_m = -47.1; %mV
+    sig_m = -3.1; %mV
+    theta_h = -59; %mV
+    sig_h = 8; %mV
+    tau_h = 1200; %ms 
+    E_na = 55; %mV
+    E_k = -80;
+    C = 1; %uF - %1000; %pF
+    g_l = 0.1; %mS - %100.0; %nS
+    E_l = -64.0; %mV
+    I = 0.0; %
+    I_h = 0; %
+    
+    v = ws(1);
+    h = ws(2);
+    
+    I_nap = -g_nap * h * (v - E_na) * ((1 + exp((-v-47.1)/3.1))^-1);
+    I_l = -g_l*(v - E_l);
+    I_na = -g_na * 0.7243 * (v - E_na) * (((1 + exp((v+35)/-7.8))^-1)^3);
+    I_k = -g_k * (v - E_k) * (((1 + exp((v+28)/-15))^-1)^4);
+    
+    v_prime = ((I_nap + I_l + I_na + I_k) / C)+I;
+    h_prime = (((1 + (exp((v - theta_h)/sig_h)))^(-1)) - h ) / (tau_h/cosh((v - theta_h)/(2*sig_h))) + I_h;
+    
+    r = [v + (dt*v_prime) h + (dt*h_prime)];
 end
