@@ -73,14 +73,14 @@ for i = 0:(1/columns):1
             t_x1 = t_r1(2,1);
             t_y1 = t_r1(2,2);
             if isnan(t_x1) || isnan(t_y1)
-                t_x1 = 0.0;
+                t_x1 = 10.0;
                 t_y1 = t_r1(2);
             end
             
             t_x2 = t_r2(2,1);
             t_y2 = t_r2(2,2);
             if isnan(t_x2) || isnan(t_y2)
-                t_x2 = 0.0;
+                t_x2 = 10.0;
                 t_y2 = t_r2(2);
             end
 
@@ -141,7 +141,7 @@ for j = 0:(1/rows):1
         t_y1 = t_r1(2,2);
         if isnan(t_x1) || isnan(t_y1)
             t_r1 = rybak_euler([x1+40,y1],timestep);
-            t_x1 = 0.0;
+            t_x1 = 10.0;
             t_y1 = t_r1(2);
         end
         
@@ -149,7 +149,7 @@ for j = 0:(1/rows):1
         t_y2 = t_r2(2,2);
         if isnan(t_x2) || isnan(t_y2)
             t_r2 = rybak_euler([x1+40,y1],timestep);
-            t_x2 = 0.0;
+            t_x2 = 10.0;
             t_y2 = t_r2(2);
         end
 
