@@ -18,10 +18,10 @@
 <MatrixFile>lif_-0.05_0_0_0_.mat</MatrixFile>
 </Algorithm>-->
 <Algorithm type="RateFunctor" name="MLR_1">
-<expression>3600</expression>
+<expression>6000</expression>
 </Algorithm>
 <Algorithm type="RateFunctor" name="MLR_2">
-<expression>t > 0.3 ? 3600 : 0</expression>
+<expression>t > 0.3 ? 6000 : 0</expression>
 </Algorithm>
 </Algorithms>
 <Nodes>
@@ -51,8 +51,8 @@
 <Connections>
 <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
 <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
-<Connection In="RG_E" Out="RG_F">20 -0.1 0</Connection>
-<Connection In="RG_F" Out="RG_E">20 -0.1 0</Connection>
+<Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
+<Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
 <!-- High self excitation causes the population to move further down into negative h_nap
  during bursting but also consolidates the population causing very sharp cutoffs of the active phase
  and high peak rate - this matches the Rybak model output very well.-->
