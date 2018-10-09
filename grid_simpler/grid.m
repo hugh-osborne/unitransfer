@@ -22,8 +22,8 @@ E_k= -80;
 g_k = 1;
 
 timestep = 1;
-transform = 1;
-filename = 'grid_transform'; %grid_transform
+transform = 0;
+filename = 'grid'; %grid_transform
 
 revId = fopen(strcat(filename,'.rev'), 'w');
 fprintf(revId, '<Mapping Type="Reversal">\n');
@@ -42,8 +42,8 @@ title('Grid');
 ylabel('h');
 xlabel('v');
 
-columns = 100;
-rows = 80;
+columns = 250;
+rows = 200;
 
 for i = 0:(1/columns):1
     svs_1 = [];
