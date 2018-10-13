@@ -153,7 +153,7 @@ plot([stat_d(1) stat_a(1)],[stat_d(2) stat_a(2)],'g');
 
 outId = fopen(strcat(filename,'.stat'), 'w');
 fprintf(outId, '<Stationary>\n');
-fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n', stat_a(1), stat_b(1), stat_c(1), stat_d(1), stat_a(2), stat_b(2), stat_c(2), stat_d(2));
+%fprintf(outId, '<Quadrilateral><vline>%f %f %f %f</vline><wline>%f %f %f %f</wline></Quadrilateral>\n', stat_a(1), stat_b(1), stat_c(1), stat_d(1), stat_a(2), stat_b(2), stat_c(2), stat_d(2));
 fprintf(outId, '</Stationary>\n');
 fclose(outId);
 
