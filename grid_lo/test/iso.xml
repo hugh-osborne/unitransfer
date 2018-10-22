@@ -1,5 +1,6 @@
 <Simulation>
 <Variable Name="IN_RG_E_CONN" type="double">100</Variable>
+<Variable Name="IN_EFF" type="double">0.1</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
 <Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.0" modelfile="adex.model" transformfile="adex_0_0_0_0_.tmat" start_strip="22" start_cell="99" >
@@ -10,7 +11,7 @@
 <Node algorithm="OSC" name="RG_E" type="NEUTRAL" />
 </Nodes>
 <Connections>
-<IncomingConnection Node="RG_E">IN_RG_E_CONN 0.1 0</IncomingConnection>
+<IncomingConnection Node="RG_E">IN_RG_E_CONN IN_EFF 0</IncomingConnection>
 <OutgoingConnection Node="RG_E"/>
 </Connections>
 <SimulationIO>

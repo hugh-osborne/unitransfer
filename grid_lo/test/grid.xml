@@ -1,5 +1,5 @@
 <Simulation>
- <Variable Name='TIME_END'>30.0</Variable>
+ <Variable Name="IN_EFF" type="double">0.1</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
 <Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.003" modelfile="grid.model" transformfile="grid_0_0_0_0_.tmat" start_strip="78" start_cell="70" >
@@ -42,10 +42,14 @@
   -->
 </Nodes>
 <Connections>
-<Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
-<Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
-<Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
-<Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
+  <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
+  <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
+  <Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
+  <Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
+  <!-- <IncomingConnection Node="RG_E">1 IN_EFF 0</IncomingConnection>
+  <IncomingConnection Node="RG_F">1 IN_EFF 0</IncomingConnection>
+  <OutgoingConnection Node="RG_E"/>
+  <OutgoingConnection Node="RG_F"/> -->
 <!-- High self excitation causes the population to move further down into negative h_nap
  during bursting but also consolidates the population causing very sharp cutoffs of the active phase
  and high peak rate - this matches the Rybak model output very well.-->
@@ -108,7 +112,7 @@
 -->
 </Connections>
 <SimulationIO>
-<SimulationName>grid.dat</SimulationName>
+<SimulationName>grid</SimulationName>
 <OnScreen>FALSE</OnScreen>
 <WithState>TRUE</WithState>
 <WriteNet>FALSE</WriteNet>
@@ -127,7 +131,7 @@
 <SimulationRunParameter>
 <max_iter>1000000</max_iter>
 <t_begin>0</t_begin>
-<t_end>TIME_END</t_end>
+<t_end>2.0</t_end>
 <t_report>0.001</t_report>
 <t_state_report>0.001</t_state_report>
 <t_step>0.001</t_step>

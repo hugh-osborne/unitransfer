@@ -16,10 +16,10 @@ comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 #######################
 
-miind = imp.load_dynamic('libiso', './libiso.so')
-number_of_nodes = 1
-simulation_length = 1 #s
-miindmodel = miind.MiindModel(number_of_nodes, simulation_length, 1, 0.5)
+miind = imp.load_dynamic('libgrid', './libgrid.so')
+number_of_nodes = 1 # get rid of this MPI nonsense.
+simulation_length = 30 #s
+miindmodel = miind.MiindModel(number_of_nodes, simulation_length, 0.1)
 
 miindmodel.init([])
 
@@ -32,14 +32,18 @@ print('Timestep from XML : {}'.format(timestep))
 if miindmodel.startSimulation() > 0 :
     quit()
 
-constant_input = [1000]
+constant_input = [15000,15000]
 rg_e = []
 t = 0.0
 
 for i in range(int(simulation_length/timestep)):
     t += timestep
 
-    constant_input[0] = 5000
+    constant_input[0] = 15000
+    constant_input[1] = 0
+
+    if (t > 0.3):
+        constant_input[1] = 15000
 
     res = miindmodel.evolveSingleStep(constant_input)
     rg_e.append(res[0])
