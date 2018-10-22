@@ -10,18 +10,10 @@
 <MatrixFile>lif_0.05_0_0_0_.mat</MatrixFile>
 <MatrixFile>lif_-0.05_0_0_0_.mat</MatrixFile>
 </Algorithm>-->
-<Algorithm type="RateFunctor" name="MLR_1">
-<expression>15000</expression>
-</Algorithm>
-<Algorithm type="RateFunctor" name="MLR_2">
-<expression>t > 0.3 ? 15000 : 0</expression>
-</Algorithm>
 </Algorithms>
 <Nodes>
 <Node algorithm="OSC" name="RG_E" type="NEUTRAL" />
 <Node algorithm="OSC" name="RG_F" type="NEUTRAL" />
-<Node algorithm="MLR_1" name="MLR_E" type="NEUTRAL" />
-<Node algorithm="MLR_2" name="MLR_F" type="NEUTRAL" />
   <!--
   <Node algorithm="MLR_1" name="MLR_E" type="NEUTRAL" />
   <Node algorithm="MLR_2" name="MLR_F" type="NEUTRAL" />
@@ -42,14 +34,12 @@
   -->
 </Nodes>
 <Connections>
-  <Connection In="MLR_E" Out="RG_E">1 0.1 0</Connection>
-  <Connection In="MLR_F" Out="RG_F">1 0.1 0</Connection>
   <Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
   <Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
-  <!-- <IncomingConnection Node="RG_E">1 IN_EFF 0</IncomingConnection>
+  <IncomingConnection Node="RG_E">1 IN_EFF 0</IncomingConnection>
   <IncomingConnection Node="RG_F">1 IN_EFF 0</IncomingConnection>
   <OutgoingConnection Node="RG_E"/>
-  <OutgoingConnection Node="RG_F"/> -->
+  <OutgoingConnection Node="RG_F"/>
 <!-- High self excitation causes the population to move further down into negative h_nap
  during bursting but also consolidates the population causing very sharp cutoffs of the active phase
  and high peak rate - this matches the Rybak model output very well.-->

@@ -18,7 +18,7 @@ rank = comm.Get_rank()
 
 miind = imp.load_dynamic('libgrid', './libgrid.so')
 number_of_nodes = 1 # get rid of this MPI nonsense.
-simulation_length = 30 #s
+simulation_length = 2 #s
 miindmodel = miind.MiindModel(number_of_nodes, simulation_length, 0.1)
 
 miindmodel.init([])
