@@ -102,7 +102,7 @@
 -->
 </Connections>
 <SimulationIO>
-<SimulationName>grid</SimulationName>
+<SimulationName>grid_python</SimulationName>
 <OnScreen>FALSE</OnScreen>
 <WithState>TRUE</WithState>
 <WriteNet>FALSE</WriteNet>
