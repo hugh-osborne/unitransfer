@@ -2,7 +2,7 @@
  <Variable Name='TIME_END'>30.0</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
-<Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.0" modelfile="adex.model" transformfile="adex_0_0_0_0_.tmat" start_strip="22" start_cell="99" >
+<Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.0" modelfile="adex.model" transformfile="adex_0_0_0_0_.tmat" start_strip="22" start_cell="23" >
 <TimeStep>0.001</TimeStep>
 </Algorithm>
 <Algorithm type="RateFunctor" name="MLR_1">

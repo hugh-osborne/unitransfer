@@ -2,8 +2,8 @@
  <Variable Name='TIME_END'>0.2</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
-<Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.0" modelfile="cond.model" transformfile="cond_0_0_0_0_.tmat" start_strip="5" start_cell="5" >
-<TimeStep>5e-06</TimeStep>
+<Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.0" modelfile="cond.model" transformfile="cond_0_0_0_0_.tmat" start_strip="18" start_cell="0" >
+<TimeStep>1e-04</TimeStep>
 </Algorithm>
 <Algorithm type="RateFunctor" name="MLR_1">
 <expression>5000</expression>
@@ -37,9 +37,9 @@
 <max_iter>1000000</max_iter>
 <t_begin>0</t_begin>
 <t_end>TIME_END</t_end>
-<t_report>5e-06</t_report>
-<t_state_report>5e-06</t_state_report>
-<t_step>5e-06</t_step>
+<t_report>1e-04</t_report>
+<t_state_report>1e-04</t_state_report>
+<t_step>1e-04</t_step>
 <name_log>cond.log</name_log>
 </SimulationRunParameter>
 </Simulation>

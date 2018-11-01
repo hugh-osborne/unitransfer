@@ -56,9 +56,6 @@ def simulation(rate, t_end = 0.2, g_max = 10.0, h = 0.05):
     dt=5e-6 #time step
     nu=rate #input rate
 
-
-
-
     N_pop=10000 #number of neurons
 
     T_max = t_end
@@ -102,6 +99,10 @@ def simulation(rate, t_end = 0.2, g_max = 10.0, h = 0.05):
 
 
         t=t+dt
+
+    print 4 * factor
+    plt.scatter(V_save[:,4], g_save[:,4])
+    plt.show()
 
 
 #binning firing neurons to get a smooth firing rate curve
