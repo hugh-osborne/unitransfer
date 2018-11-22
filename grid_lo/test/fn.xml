@@ -1,12 +1,12 @@
 <Simulation>
- <Variable Name='TIME_END'>0.1</Variable>
+ <Variable Name='TIME_END'>500.0</Variable>
 <WeightType>DelayedConnection</WeightType>
 <Algorithms>
-<Algorithm type="GridAlgorithm" name="OSC" modelfile="cond.model" transformfile="cond_0_0_0_0_.tmat" start_v="-0.065" start_w="0.0" >
-<TimeStep>1e-05</TimeStep>
+<Algorithm type="GridAlgorithm" name="OSC" modelfile="fn.model" transformfile="fn_0_0_0_0_.tmat" start_v="-1.0" start_w="-0.3" >
+<TimeStep>1e-03</TimeStep>
 </Algorithm>
 <Algorithm type="RateFunctor" name="MLR_1">
-<expression>1000</expression>
+<expression>5</expression>
 </Algorithm>
 </Algorithms>
 <Nodes>
@@ -17,7 +17,7 @@
 <Connection In="MLR_E" Out="RG_E">1 0.05 0</Connection>
 </Connections>
 <SimulationIO>
-<SimulationName>cond</SimulationName>
+<SimulationName>fn</SimulationName>
 <OnScreen>FALSE</OnScreen>
 <WithState>TRUE</WithState>
 <WriteNet>FALSE</WriteNet>
@@ -37,9 +37,9 @@
 <max_iter>1000000</max_iter>
 <t_begin>0</t_begin>
 <t_end>TIME_END</t_end>
-<t_report>1e-04</t_report>
-<t_state_report>1e-04</t_state_report>
-<t_step>1e-04</t_step>
-<name_log>cond.log</name_log>
+<t_report>1e-01</t_report>
+<t_state_report>1e-01</t_state_report>
+<t_step>1e-01</t_step>
+<name_log>fn.log</name_log>
 </SimulationRunParameter>
 </Simulation>
