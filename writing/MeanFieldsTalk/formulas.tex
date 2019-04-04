@@ -1,0 +1,48 @@
+\documentclass[fleqn]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\DeclareUnicodeCharacter{221E}{\ensuremath{\infty}}
+\DeclareUnicodeCharacter{1D70F}{\ensuremath{\tau}}
+\begin{document}
+
+
+\title{Introduction to \LaTeX{}}
+\author{Author's Name}
+
+\maketitle
+
+\begin{abstract}
+The abstract text goes here.
+\end{abstract}
+
+\section{Introduction}
+Here is the text of your introduction.
+
+\begin{align}
+    V' = -g_{k}m_{k}^4 ( V - E_{k} ) - g_{Nap}m_{\infty Nap}h_{Nap} ( V - E_{Na} ) - g_{Na}m_{\infty Na}^3h_{Na} ( V - E_{Na} ) - g_{l} ( V - E_{l} ) \nonumber
+\end{align}
+\begin{align}
+    \tau_{k}m_{k}' = h_{\infty k} - m_{k} \nonumber
+\end{align}
+\begin{align}
+    \tau_{Nap}h_{Nap}' = h_{\infty Nap} - h_{Nap} \nonumber
+\end{align}
+\begin{align}
+    \tau_{Na}h_{Na}' = h_{\infty Na} - h_{Na} \nonumber
+\end{align}
+
+
+\begin{align}
+    V' = -g_{k}m_{\infty k}^4 ( V - E_{k} ) - g_{Nap}m_{\infty Nap}h_{Nap} ( V - E_{Na} ) - g_{Na}m_{\infty Na}^3\overline{h_{\infty Na}} ( V - E_{Na} ) - g_{l} ( V - E_{l} ) \nonumber
+\end{align}
+\begin{align}
+    \tau_{Nap}h_{Nap}' = h_{\infty Nap} - h_{Nap} \nonumber
+\end{align}
+
+\subsection{Subsection Heading Here}
+Write your subsection text here.
+
+\section{Conclusion}
+Write your conclusion here.
+
+\end{document}

@@ -1,6 +1,6 @@
 <Simulation>
  <Variable Name="IN_EFF" type="double">0.1</Variable>
-<WeightType>DelayedConnection</WeightType>
+<WeightType>CustomConnectionParameters</WeightType>
 <Algorithms>
 <Algorithm type="GridAlgorithm" name="OSC" tau_refractive="0.003" modelfile="grid.model" transformfile="grid_0_0_0_0_.tmat" start_v="-65" start_w="0.6" >
 <TimeStep>0.001</TimeStep>
@@ -19,11 +19,17 @@
 <Node algorithm="MLR_2" name="MLR_RG_F" type="NEUTRAL" />
 </Nodes>
 <Connections>
-  <Connection In="MLR_RG_F" Out="RG_F">1 0.1 0</Connection>
-  <Connection In="MLR_RG_E" Out="RG_E">1 0.1 0</Connection>
-  <Connection In="RG_E" Out="RG_F">100 -0.1 0</Connection>
-  <Connection In="RG_F" Out="RG_E">100 -0.1 0</Connection>
+  <Connection In="MLR_RG_F" Out="RG_F" num_connections="1" efficacy="0.1" delay="0.0"/>
+  <Connection In="MLR_RG_E" Out="RG_E" num_connections="1" efficacy="0.1" delay="0.0"/>
+  <Connection In="RG_E" Out="RG_F" num_connections="1" efficacy="-0.1" delay="0.0"/>
+  <Connection In="RG_F" Out="RG_E" num_connections="1" efficacy="-0.1" delay="0.0"/>
 </Connections>
+<Reporting>
+	<!--<Density node="RG_E" t_start="0.0" t_end="6.0" t_interval="0.001" />
+	<Density node="RG_F" t_start="0.0" t_end="6.0" t_interval="0.001" />-->
+	<Display node="RG_E" />
+	<Rate node="RG_E" t_interval="0.001" />
+</Reporting>
 <SimulationIO>
 <SimulationName>grid</SimulationName>
 <OnScreen>FALSE</OnScreen>
