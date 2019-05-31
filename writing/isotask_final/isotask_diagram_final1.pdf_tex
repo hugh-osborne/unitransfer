@@ -1,0 +1,139 @@
+%% Creator: Inkscape inkscape 0.92.4, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'isotask_diagram_final1.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{1302.96697998bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.5131105)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{isotask_diagram_final1.pdf}}%
+    \put(0.06211185,0.07219373){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Extensor}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{isotask_diagram_final1.pdf}}%
+    \put(0.06467511,0.05953032){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Afferent}\end{tabular}}}}%
+    \put(0.06018715,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Feedback}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{isotask_diagram_final1.pdf}}%
+    \put(0.37414609,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{MN}\end{tabular}}}}%
+    \put(0.39026315,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.39371681,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{RF}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{isotask_diagram_final1.pdf}}%
+    \put(0.18361939,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{MN}\end{tabular}}}}%
+    \put(0.19916084,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.2026145,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{VL}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{isotask_diagram_final1.pdf}}%
+    \put(0.28204859,0.13954002){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.15625}\smash{\begin{tabular}[t]{l}\textbf{MN}\end{tabular}}}}%
+    \put(0.29643882,0.13954002){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.15625}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.29931687,0.13954002){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.15625}\smash{\begin{tabular}[t]{l}\textbf{VM}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{isotask_diagram_final1.pdf}}%
+    \put(0.62741421,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{MN}\end{tabular}}}}%
+    \put(0.64353127,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.64698493,0.13896441){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{BF}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{isotask_diagram_final1.pdf}}%
+    \put(0.47487773,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{MN}\end{tabular}}}}%
+    \put(0.49041918,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{-}\end{tabular}}}}%
+    \put(0.49387284,0.04686691){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{ST}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{isotask_diagram_final1.pdf}}%
+    \put(0.42229941,0.46878858){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Cortical}\end{tabular}}}}%
+    \put(0.42933264,0.45612517){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Drive}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{isotask_diagram_final1.pdf}}%
+    \put(0.7602001,0.06643763){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Flexor}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{isotask_diagram_final1.pdf}}%
+    \put(0.75540635,0.05377423){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Afferent}\end{tabular}}}}%
+    \put(0.7509184,0.04111082){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Feedback}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.49756905){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Excitatory\end{tabular}}}}%
+    \put(0.83751163,0.49756905){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Afferent\end{tabular}}}}%
+    \put(0.87665307,0.49756905){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.48030077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Excitatory\end{tabular}}}}%
+    \put(0.83751163,0.48030077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Cortical\end{tabular}}}}%
+    \put(0.87550185,0.48030077){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.46303249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Excitatory\end{tabular}}}}%
+    \put(0.83751163,0.46303249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Extensor\end{tabular}}}}%
+    \put(0.88125794,0.46303249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Interneuronal\end{tabular}}}}%
+    \put(0.94515058,0.46303249){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.44576421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Inhibitory\end{tabular}}}}%
+    \put(0.83405797,0.44576421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Extensor\end{tabular}}}}%
+    \put(0.87780429,0.44576421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Interneuronal\end{tabular}}}}%
+    \put(0.94169693,0.44576421){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.42849592){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Excitatory\end{tabular}}}}%
+    \put(0.83751163,0.42849592){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Flexor\end{tabular}}}}%
+    \put(0.86917015,0.42849592){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Interneuronal\end{tabular}}}}%
+    \put(0.93306279,0.42849592){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{isotask_diagram_final1.pdf}}%
+    \put(0.78916044,0.41122764){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Inhibitory\end{tabular}}}}%
+    \put(0.83405797,0.41122764){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Flexor\end{tabular}}}}%
+    \put(0.86571649,0.41122764){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Interneuronal\end{tabular}}}}%
+    \put(0.92960913,0.41122764){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{isotask_diagram_final1.pdf}}%
+    \put(0.62626299,0.37726669){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Flexor}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{isotask_diagram_final1.pdf}}%
+    \put(0.61002002,0.36460328){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Interneurons}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{isotask_diagram_final1.pdf}}%
+    \put(0.60957032,0.34042769){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{Excitatory}\end{tabular}}}}%
+    \put(0.66252638,0.34042769){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{and}\end{tabular}}}}%
+    \put(0.62160415,0.3289155){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{Inhibitory}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{isotask_diagram_final1.pdf}}%
+    \put(0.21873156,0.37726669){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Extensor}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{isotask_diagram_final1.pdf}}%
+    \put(0.2099715,0.36460328){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13750005}\smash{\begin{tabular}[t]{l}\textbf{Interneurons}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{isotask_diagram_final1.pdf}}%
+    \put(0.20952181,0.34042769){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{Excitatory}\end{tabular}}}}%
+    \put(0.26247787,0.34042769){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{and}\end{tabular}}}}%
+    \put(0.22155564,0.3289155){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{Inhibitory}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{isotask_diagram_final1.pdf}}%
+    \put(0.70080441,0.29437894){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{InhibST}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{isotask_diagram_final1.pdf}}%
+    \put(0.13009671,0.29322772){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.13888884}\smash{\begin{tabular}[t]{l}\textbf{InhibRF}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{isotask_diagram_final1.pdf}}%
+  \end{picture}%
+\endgroup%
